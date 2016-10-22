@@ -32,6 +32,8 @@ public class Basics {
 		a2.add(12); a2.add(113); a2.add(114); a2.add(115); a2.add(116);
 		a1.removeAll(a2);
 		System.out.println(a1);
+		String f = a1.toString();
+		System.out.println(a1.indexOf(4));
 		
 		
 	}
