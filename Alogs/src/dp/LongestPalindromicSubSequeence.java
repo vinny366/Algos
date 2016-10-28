@@ -10,8 +10,13 @@ public class LongestPalindromicSubSequeence {
 	public static void claculate(char[] charArray) {
 		int min = 0;
 		int len = charArray.length;
+		/**
+		 * No need extra len for this   000 
+		 */
 		int[][] temp = new int[len][len];
-		
+		/**
+		 * Only upper half of matrix is populated in this problem
+		 */
 		for(int i=0; i<len; i++){
 			temp[i][i] = 1;
 		}
@@ -19,7 +24,7 @@ public class LongestPalindromicSubSequeence {
 		 * We consider group sizes from 2 to len
 		 */
 		for(int groupsize=2; groupsize<=len; groupsize++){
-			for(int i=0;i<len-groupsize;i++){
+			for(int i=0;i<len-groupsize + 1;i++){
 				int j = i+groupsize-1;
 				if(groupsize==2 && charArray[i] == charArray[j]   ){
 					temp[i][j] = 2;
