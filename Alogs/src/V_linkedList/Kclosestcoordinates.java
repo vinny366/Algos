@@ -1,6 +1,5 @@
 package V_linkedList;
 
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
@@ -28,15 +27,16 @@ public class Kclosestcoordinates {
 		setOfPoints.add(p8);
 		setOfPoints.add(p9);
 		
-		CoordinatePoint myPoint = new CoordinatePoint(1, 5);
+		CoordinatePoint myPoint = new CoordinatePoint(1, 1);
 		
-		PriorityQueue<CoordinatePoint> op = calnearest(setOfPoints, myPoint, 3);
+		PriorityQueue<CoordinatePoint> op = calnearest(setOfPoints, myPoint, 5);
 		
-		for(int i =0 ;i<3;i++){
+		for(int i =0 ;i<5;i++){
 			CoordinatePoint kk = op.poll();
-			System.out.print(kk.x + "--");
-			System.out.print(kk.y);
-			System.out.println();
+			System.out.print(kk.x +  ", ");
+			System.out.print(kk.y + ", ");
+			System.out.println(kk.distance );
+			System.out.println("--------");
 		}
 	}
 
