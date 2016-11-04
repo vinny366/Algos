@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
 
+import javax.xml.ws.soap.AddressingFeature;
+
 class MyGraph {
 	boolean isDirected = true;
 	static int vertices ;
@@ -34,39 +36,31 @@ class MyGraph {
 		}
 	}
 
-	public void topologicalSort() {
+	public void topologicalSort() {		
 		Stack<Integer> s = new Stack<Integer>();
-		boolean[] visited = new boolean[this.vertices + 1];
-		for(int i=0;i<this.vertices+1; i++){
-			visited[i] = false;
+		boolean[] visited = new boolean[this.vertices +1];
+		
+		for(int i =1; i<visited.length;i++){
+			if(!visited[i]){
+				topologicalSortUtil(i,visited,s);
+			}
 		}
 		
-		for (int i = 1; i < this.vertices+1; i++){
-            if (visited[i] == false)
-                topologicalSortUtil(i, visited, s);
-		}
 		System.out.println("stack printing");
 		while(!s.isEmpty()){			
 			int y = s.pop();
 			System.out.println(y);
 		}
-		
 	}
 
-	private void topologicalSortUtil(int n, boolean[] visited, Stack<Integer> s) {
-		visited[n] = true;
-		Integer i;
-		
-		Iterator<Integer> it = adjacencyList[n].iterator();
-		
-		  while (it.hasNext())
-	        {
-	            i = it.next();
-	            if (!visited[i])
-	                topologicalSortUtil(i, visited, s);
-	        }
-		  s.push(n);
-		
+	public static void topologicalSortUtil(int node, boolean[] visited, Stack<Integer> s){
+		visited[node] = true;
+		for(int i =0;i<adjacencyList[node].size(); i++){
+			if(!visited[(int)adjacencyList[node].get(i)]){
+				topologicalSortUtil((int)adjacencyList[node].get(i), visited, s);
+			}
+		}
+		s.push(node);
 	}
 	
 	

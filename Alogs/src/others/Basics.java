@@ -2,6 +2,9 @@ package others;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Set;
 
 public class Basics {
@@ -34,7 +37,7 @@ public class Basics {
 		System.out.println(a1);
 		String f = a1.toString();
 		System.out.println(a1.indexOf(4));
-		
+		PriorityQueue<Integer> d = new PriorityQueue<>();
 		
 	}
 

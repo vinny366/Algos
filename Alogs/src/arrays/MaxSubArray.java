@@ -9,22 +9,24 @@ public class MaxSubArray {
 		 * max is max of max and newsum which ever is greater 
 		 */
 	public static void main(String[] args) {
-		int nums[] = {-2, -3, -4, 6, 2, 1, -5, 10};
+		int nums[] = {-1, 92, -4, -6, -2, -1, -5, -10};
 		int op = maxSubArray(nums);
 		System.out.println(op);
 	}
 	public static int maxSubArray(int[] a) {
-      int max = a[0];
-      int newsum = a[0];
-      
-      for(int i= 1 ; i<a.length;i++){
-    	  newsum = Math.max(newsum+a[i],a[i]);
-    	  max = Math.max(newsum, max);
-    	  
-      }
-        
-        return max;
-
+     int max = a[0];
+     int sum = a[0];
+     int index= -1;
+     for(int i=1;i<a.length;i++){
+    	 
+    	 sum = Math.max(sum + a[i],a[i]);
+    	 if(sum == a[i]){
+    		 index = i;
+    	 }
+    	 max= Math.max(sum, max);
+     }
+  System.out.println(index);  // if index == -1 it starts from start of the array;  As we know sum go on counting till max
+     return max;
     }
-
+	
 }

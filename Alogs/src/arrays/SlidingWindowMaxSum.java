@@ -1,5 +1,5 @@
 package arrays;
-import java.util.PriorityQueue;
+
 import java.util.Collections;
 public class SlidingWindowMaxSum {
 
@@ -12,22 +12,19 @@ public class SlidingWindowMaxSum {
 
 	}
 	private static int calc(int[] nums, int k) {
-		int res = Integer.MIN_VALUE;
-        //PriorityQueue<Integer> pq = new PriorityQueue<>(k,Collections.reverseOrder());
-        
-        int sum = 0;
-        for(int i=0;i<k;i++){
-            
-            sum = sum + nums[i];
-            res = sum;
-        }
-        for(int i=1;i<nums.length -k +1;i++){
-            sum = sum - nums[i-1];
-            sum  = sum + nums[i+k-1];
-            if(sum>res)
-            	res = sum;
-        }
-        return res;
+		int sum = 0;
+		int max = sum;
+		for(int i=0;i<k;i++){
+			sum = sum + nums[i];
+			 max = sum;
+		}
+		for(int i=1;i<nums.length-k+1;i++){
+			sum = sum -nums[i-1] + nums[i+k-1];
+			if(sum>max){
+				max = sum;
+			}
+		}
+		return max;
 	}
 
 }
