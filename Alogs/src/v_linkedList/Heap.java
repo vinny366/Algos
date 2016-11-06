@@ -1,4 +1,4 @@
-package V_linkedList;
+package v_linkedList;
 
 import java.util.ArrayList;
 

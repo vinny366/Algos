@@ -1,4 +1,4 @@
-package V_linkedList;
+package v_linkedList;
 
 public class CoordinatePoint {
 	float x;
