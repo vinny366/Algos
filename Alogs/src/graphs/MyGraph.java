@@ -39,29 +39,27 @@ class MyGraph {
 
 	public void topologicalSort() {		
 		Stack<Integer> s = new Stack<Integer>();
-		boolean[] visited = new boolean[this.vertices +1];
-		
-		for(int i =1; i<visited.length;i++){
+		boolean[] visited = new boolean[this.vertices + 1];
+		for(int i=1;i<visited.length;i++){
 			if(!visited[i]){
 				topologicalSortUtil(i,visited,s);
 			}
 		}
-		
-		System.out.println("stack printing");
-		while(!s.isEmpty()){			
-			int y = s.pop();
-			System.out.println(y);
+		// Printing the elements from stack
+		while(!s.isEmpty()){
+			System.out.print(s.pop()+"--> ");
 		}
+		
 	}
 
-	public static void topologicalSortUtil(int node, boolean[] visited, Stack<Integer> s){
-		visited[node] = true;
-		for(int i =0;i<adjacencyList[node].size(); i++){
-			if(!visited[(int)adjacencyList[node].get(i)]){
-				topologicalSortUtil((int)adjacencyList[node].get(i), visited, s);
+	public static void topologicalSortUtil(int node, boolean[] visited, Stack<Integer> s){		
+			visited[node] = true;
+			for(int i=0;i<adjacencyList[node].size();i++){
+				if(!visited[(int) adjacencyList[node].get(i)]){
+					topologicalSortUtil(i,visited,s);
+				}
 			}
-		}
-		s.push(node);
+			s.push(node);
 	}
 
 	public boolean findCycleUndirected(int vertexNum) {
