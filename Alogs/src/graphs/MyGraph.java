@@ -1,10 +1,10 @@
 package graphs;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Set;
 import java.util.Stack;
-
-import javax.xml.ws.soap.AddressingFeature;
 
 class MyGraph {
 	boolean isDirected = true;
@@ -26,6 +26,7 @@ class MyGraph {
 	public void addEdge(int sourceNode, int destinationNode){
 		System.out.println("adding " + sourceNode +"-->" + destinationNode);
 		this.adjacencyList[sourceNode].add(destinationNode);
+		this.adjacencyList[destinationNode].add(sourceNode);  // remove this for directed graph
 	}
 	
 	public  void printGraph(){
@@ -62,6 +63,34 @@ class MyGraph {
 		}
 		s.push(node);
 	}
-	
-	
+
+	public boolean findCycleUndirected(int vertexNum) {
+		System.out.println("In find undirected cycle");
+		if(vertexNum > this.vertices){
+			System.out.println("Vertex Number is out of Bounds");
+			return false;
+		}
+		Set<Integer> visitedSet = new HashSet();
+		if(cycleUndirectedUtil(vertexNum,visitedSet,0))
+			return true;
+		return false;
+		
+	}
+
+	private boolean cycleUndirectedUtil(int vertexNum, Set<Integer> visitedSet,int parent) {
+		if(visitedSet.contains(vertexNum))
+			return true;
+		visitedSet.add(vertexNum);
+		Iterator<Integer> i = adjacencyList[vertexNum].listIterator();
+        while (i.hasNext())
+        {
+            int n = i.next();
+            if(!visitedSet.contains(n)){            	
+	            cycleUndirectedUtil(n, visitedSet,vertexNum);	            	
+            }else if(n!=parent){
+            	return true;
+            }            
+        }
+		return false;						
+	}	
 }
