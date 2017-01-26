@@ -4,6 +4,7 @@ public class CheckBalanced {
 
 	public static void main(String[] args) {
 		BinaryTree bt = BinaryTree.sample();
+		bt.inOrderTraversal(bt.root);
 		boolean flag = isBalanced(bt.root);
 		System.out.println(flag);
 	}

@@ -30,12 +30,9 @@ public class IsComplete {
 	}
 
 	private static boolean checkifBtComplete(TreeNode root,int index, int node_count) {
-		
-		if(root == null)
-			return true;
-		if(index>= node_count)
+		if(index>node_count)
 			return false;
- return ( (checkifBtComplete(root.left,2*index+1,node_count)) && (checkifBtComplete(root.right,2*index+2,node_count)));
+		return(checkifBtComplete(root.left,2*index,node_count) && checkifBtComplete(root.right,2*index+1,node_count) );
 	}
 
 	private static int countNodes(TreeNode root) {

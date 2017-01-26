@@ -38,6 +38,8 @@ class TreeNode{
 	public void setRight(TreeNode right) {
 		this.right = right;
 	}
+	
+	
 }
  class BinaryTree {
 
@@ -70,5 +72,13 @@ class TreeNode{
 		return tree;
 	}
 
-
+	public void inOrderTraversal(TreeNode root){
+		
+		if(root != null){
+			inOrderTraversal(root.left);
+			System.out.print(root.data +"-->");
+			inOrderTraversal(root.right);
+			
+		}
+	}
 }
