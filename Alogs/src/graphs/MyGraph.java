@@ -22,6 +22,13 @@ class MyGraph {
 		}
 		
 	}
+	
+	public int getVertices(){
+		return this.vertices;
+	}
+	public LinkedList[] getadjacencyList(){
+		return this.adjacencyList;
+	}
 
 	public void addEdge(int sourceNode, int destinationNode){
 		System.out.println("adding " + sourceNode +"-->" + destinationNode);
