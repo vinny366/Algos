@@ -52,7 +52,7 @@ class TreeNode{
 		BinaryTree tree = new BinaryTree();
 		tree.root = new TreeNode(60);
 		TreeNode n1 = new TreeNode(50);
-		TreeNode n2 = new TreeNode(30);
+		TreeNode n2 = new TreeNode(70);
 		TreeNode n3 = new TreeNode(40);
 		TreeNode n4 = new TreeNode(20);
 		TreeNode n5 = new TreeNode(80);
@@ -60,10 +60,10 @@ class TreeNode{
 		TreeNode n7 = new TreeNode(70);
 		TreeNode n8 = new TreeNode(64);
 		TreeNode n9 = new TreeNode(56);
-		tree.root.setLeft(n1);
-		tree.root.setRight(n2);
-		n1.setLeft(n3);
-		n1.setRight(n4);
+		tree.root.setLeft(n1);//50
+		tree.root.setRight(n2); //70
+		n1.setLeft(n3);//40
+		n1.setRight(n4);//55
 		n2.setLeft(n5);
 		n4.setLeft(n6);
 		n4.setRight(n7);
