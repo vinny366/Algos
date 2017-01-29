@@ -1,5 +1,8 @@
 package trees;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class TreeNode{
 	int data;
 	TreeNode left;
@@ -31,5 +34,28 @@ class TreeNode{
 		this.right = right;
 	}
 	
+	/*
+	 * Q.size() and 2 while loops is main thing here
+	 */
+	public void breadthTraversal(TreeNode root){
+		int level = 0;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		
+		while(!q.isEmpty()){
+			int size = q.size();
+			while(size>0){
+				TreeNode temp = q.poll();
+				System.out.print(temp.data + ",");
+				if(temp.left !=null)
+					q.add(temp.left);
+				if(temp.right != null)
+					q.add(temp.right);
+				size--;
+			}
+			System.out.println("");
+			
+		}
+	}
 	
 }
