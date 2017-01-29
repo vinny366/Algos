@@ -26,7 +26,7 @@ import java.util.Queue;
 		TreeNode n1 = new TreeNode(50);
 		TreeNode n2 = new TreeNode(70);
 		TreeNode n3 = new TreeNode(40);
-		TreeNode n4 = new TreeNode(20);
+		TreeNode n4 = new TreeNode(55);
 		TreeNode n5 = new TreeNode(68);	
 		TreeNode n7 = new TreeNode(58);
 		
