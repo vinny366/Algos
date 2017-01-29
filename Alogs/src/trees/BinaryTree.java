@@ -1,4 +1,8 @@
 package trees;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*
  *                        60
  *                   50          30
@@ -8,39 +12,7 @@ package trees;
  *      null,null      25 70 | 64 56
  */
 
-class TreeNode{
-	int data;
-	TreeNode left;
-	TreeNode right;
 
-	public  TreeNode(int x){
-		this.data = x;
-		this.left = null;
-		this.right = null;
-	}
-	
-	public int getData() {
-		return data;
-	}
-	public void setData(int data) {
-		this.data = data;
-				
-	}
-	public TreeNode getLeft() {
-		return left;
-	}
-	public void setLeft(TreeNode left) {
-		this.left = left;
-	}
-	public TreeNode getRight() {
-		return right;
-	}
-	public void setRight(TreeNode right) {
-		this.right = right;
-	}
-	
-	
-}
  class BinaryTree {
 
 	public TreeNode root = null;
@@ -55,20 +27,17 @@ class TreeNode{
 		TreeNode n2 = new TreeNode(70);
 		TreeNode n3 = new TreeNode(40);
 		TreeNode n4 = new TreeNode(20);
-		TreeNode n5 = new TreeNode(80);
-		TreeNode n6 = new TreeNode(25);
-		TreeNode n7 = new TreeNode(70);
-		TreeNode n8 = new TreeNode(64);
-		TreeNode n9 = new TreeNode(56);
+		TreeNode n5 = new TreeNode(68);	
+		TreeNode n7 = new TreeNode(58);
+		
 		tree.root.setLeft(n1);//50
 		tree.root.setRight(n2); //70
 		n1.setLeft(n3);//40
 		n1.setRight(n4);//55
-		n2.setLeft(n5);
-		n4.setLeft(n6);
+		n2.setLeft(n5);	
 		n4.setRight(n7);
-		n5.setLeft(n8);
-		n5.setRight(n9);
+		
+		
 		return tree;
 	}
 
@@ -78,6 +47,27 @@ class TreeNode{
 			inOrderTraversal(root.left);
 			System.out.print(root.data +"-->");
 			inOrderTraversal(root.right);
+			
+		}
+	}
+	
+	public void breadthTraversal(TreeNode root){
+		int level = 0;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		
+		while(!q.isEmpty()){
+			int size = q.size();
+			while(size>0){
+				TreeNode temp = q.poll();
+				System.out.print(temp.data + ",");
+				if(temp.left !=null)
+					q.add(temp.left);
+				if(temp.right != null)
+					q.add(temp.right);
+				size--;
+			}
+			System.out.println("");
 			
 		}
 	}
