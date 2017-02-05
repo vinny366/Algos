@@ -1,8 +1,5 @@
 package google;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Merge {
 
 	public static void main(String[] args) {
@@ -10,7 +7,7 @@ public class Merge {
 		int low = 0;
 		int high = ar.length-1;
 		Merge(ar,low,high);
-		HashMap<Integer,Integer> h = new HashMap<>();
+//		HashMap<Integer,Integer> h = new HashMap<>();
 	
 		
 		for(int i=0;i<ar.length;i++){

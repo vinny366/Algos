@@ -51,7 +51,13 @@ public class AllPairsSum {
 		int[] arr = {1,7,9,1,-1,4,11,15,2,4,6};
  
 //		printArray(arr);
- 
+		int a = 23;
+		int b =9;
+		a = a^b;
+		b = a^b;
+		a = a^b;
+		System.out.println(b);
+		System.out.println(a);
 		System.out.println("ans = " + getCountPairsWithGivenSum(arr, 8));
 	}
 }
