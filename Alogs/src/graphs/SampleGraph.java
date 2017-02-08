@@ -11,16 +11,16 @@ public class SampleGraph {
 		g.addEdge(4, 6);
 		g.addEdge(5, 6);
 		g.addEdge(6, 7);
-		System.out.println("pri");
-//			g.printGraph();
+		
+			g.printGraph();
 //		System.out.println("Topological------------------");
-//		g.topologicalSort();
-		boolean result = g.findCycleUndirected(2);
-		if(result){
-			System.out.println("There is cycle");
-		}else{
-			System.out.println("No cyce");
-		}
+		g.topologicalSort();
+//		boolean result = g.findCycleUndirected(2);
+//		if(result){
+//			System.out.println("There is cycle");
+//		}else{
+//			System.out.println("No cyce");
+//		}
 
 	}
 

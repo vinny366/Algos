@@ -7,58 +7,46 @@ import java.util.Stack;
 public class PathinUndirectedGraph {
 
 	public static void main(String[] args) {
-		MyGraph g = new MyGraph(7, true);
+		MyGraph g = new MyGraph(7, false);
 		g.addEdge(1, 3);
-//		g.addEdge(2, 3);		
+		g.addEdge(2, 3);		
 		g.addEdge(2, 5);
 		g.addEdge(3, 4);
 		g.addEdge(4, 6);
-		g.addEdge(5, 6);
-		g.addEdge(6, 7);
-		Stack<Integer> tracker = new Stack<Integer>();
-		boolean isPathexists = findpath(1,6,g.getVertices(),g.getadjacencyList(),tracker);
-		if(isPathexists)
-			System.out.println("Yes");
-		else
-			System.out.println("false");
-		
-		while(!tracker.isEmpty()){
-			System.out.print(tracker.pop() +",");
+//		g.addEdge(5, 6);
+//		g.addEdge(6, 7);
+		for(int i=0;i<g.getVertices()+1;i++){
+			System.out.println(g.adjacencyList[i]);
 		}
+		
+		Stack<Integer> s = new Stack<Integer>();
+		boolean pathExists = findPath(2, 7, s, g.adjacencyList, -1);
+		System.out.println(pathExists);
 	}
 
-	private static boolean findpath(int startNode, int endNode,int vertices,LinkedList[] adj,Stack tracker) {
-		if(startNode>vertices || endNode>vertices )
-			return false;
-		if(startNode == endNode)
+	public static boolean findPath(int start, int end, Stack s, LinkedList[] adjacencyList,int parent) {
+		s.add(start);
+		if(start == end){
 			return true;
-		
-		
-		tracker.add(startNode);
-		return existsPath(startNode,endNode,tracker,adj,-1);
-		
-	}
-	
-	public static boolean existsPath(int startNode,int endNode,Stack tracker,LinkedList[] adj,int parent){
-		if(startNode == endNode){ 
-			return true;
-		}else{
-		Iterator<Integer> i = adj[startNode].listIterator();
-		while(i.hasNext()){
-			int n = i.next();
-			if(n!=parent){
-				boolean flag;
-				tracker.add(n);
-				flag = existsPath(n,endNode,tracker,adj,startNode);
-				if(flag){
-					return true;
-				}else{
-					tracker.pop();
+		}
+		else{
+			Iterator<Integer> i = adjacencyList[start].listIterator();
+			while(i.hasNext()){
+				int n = i.next();
+				if(parent != n){
+					s.push(n);
+					boolean flag = findPath(n, end, s, adjacencyList, start);
+					if(flag){
+						return true;
+					}else{
+						s.pop();
+					}
 				}
 			}
 		}
+		
 		return false;
-		}
-	}
+	}	
+	
 
 }

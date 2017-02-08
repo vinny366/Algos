@@ -5,13 +5,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.Stack;
-
+@SuppressWarnings("all")
 class MyGraph {
 	boolean isDirected = true;
 	static int vertices ;
 	public static LinkedList[] adjacencyList;
 	
-	MyGraph(int numberofvertices,boolean directed){
+	MyGraph(int numberofvertices, boolean directed){
 		this.isDirected = directed;
 		this.vertices =  numberofvertices ;
 		adjacencyList = new LinkedList[numberofvertices+1];
@@ -26,6 +26,7 @@ class MyGraph {
 	public int getVertices(){
 		return this.vertices;
 	}
+	
 	public LinkedList[] getadjacencyList(){
 		return this.adjacencyList;
 	}
@@ -33,42 +34,48 @@ class MyGraph {
 	public void addEdge(int sourceNode, int destinationNode){
 		System.out.println("adding " + sourceNode +"-->" + destinationNode);
 		this.adjacencyList[sourceNode].add(destinationNode);
-		this.adjacencyList[destinationNode].add(sourceNode);  // remove this for directed graph
+		if(!this.isDirected)
+			this.adjacencyList[destinationNode].add(sourceNode);  // remove this for directed graph
 	}
 	
 	public  void printGraph(){
+		System.out.println("printing graph");
 		System.out.println("This graph has " + this.vertices + "vertices");
 		System.out.println("the adjacency List is");
 		for(LinkedList<Integer> i : this.adjacencyList){
 			System.out.println(i);
 		}
 	}
-
-	public void topologicalSort() {		
-		Stack<Integer> s = new Stack<Integer>();
+//--------------------------------------------------TOPOLOGICAL---------------------------------------------
+	public void topologicalSort(){
+		System.out.println("Top sort");
+		Stack<Integer> s = new Stack();
 		boolean[] visited = new boolean[this.vertices + 1];
 		for(int i=1;i<visited.length;i++){
 			if(!visited[i]){
-				topologicalSortUtil(i,visited,s);
+			topologicalSortUtil(i,visited,s);
 			}
 		}
-		// Printing the elements from stack
+		System.out.println("Popping");
 		while(!s.isEmpty()){
-			System.out.print(s.pop()+"--> ");
+			
+			System.out.print(s.pop()+",");
 		}
-		
 	}
-
-	public static void topologicalSortUtil(int node, boolean[] visited, Stack<Integer> s){		
-			visited[node] = true;
-			for(int i=0;i<adjacencyList[node].size();i++){
-				if(!visited[(int) adjacencyList[node].get(i)]){
-					topologicalSortUtil(i,visited,s);
-				}
+	
+	public void topologicalSortUtil(int vertex, boolean[] visited, Stack s){
+		visited[vertex] = true;
+		for(int i=0; i<adjacencyList[vertex].size(); i++){
+			
+			if(!visited[(int) adjacencyList[vertex].get(i)]){
+				topologicalSortUtil((int) adjacencyList[vertex].get(i), visited, s);
 			}
-			s.push(node);
+		}
+		s.push(vertex);
 	}
-
+//--------------------------------------------------TOPOLOGICAL---------------------------------------------
+	
+	
 	public boolean findCycleUndirected(int vertexNum) {
 		System.out.println("In find undirected cycle");
 		if(vertexNum > this.vertices){
