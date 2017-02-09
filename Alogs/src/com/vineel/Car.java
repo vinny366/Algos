@@ -1,19 +1,14 @@
 package com.vineel;
 
 public class Car extends Vehicle {
-	public Car(VehicleSize s){
-		this.licenseplate = 123;
-		this.size = s;
-		this.spotsNeeded = 1;
+	public Car(int num){
+		this.licenseplate = num;
+		this.size = VehicleSize.Compact;
+		
 	}
-	@Override
-	public void clearSpot(){}
-	@Override
-	public void setSpot(){}
 
-	@Override
-	boolean caFit() {
+	public void park() {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
 }

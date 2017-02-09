@@ -1,32 +1,57 @@
 package com.vineel;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ParkingLot {
-	ArrayList<spot>  s;
-	private int occupied =0;
-	int totalSize;
-	public ParkingLot(int spots) {
-		s = new ArrayList<spot>(spots);
-		this.totalSize = spots;
+	int numberofLevels;
+	ArrayList<Levels> storage=new ArrayList<>();
+	
+	public ParkingLot(int x) {
+		this.numberofLevels = x;
+		for(int i=1;i<=x;i++){
+			storage.add(new Levels(i));
+		}
 	}
 	
-	public boolean isFull(){
-		return (totalSize-occupied)>0 ? false:true;
+	public boolean isAvailable(VehicleSize size){
+		Iterator<Levels> i=storage.listIterator();
+		while(i.hasNext()){
+			Levels n=i.next();
+			if(n.isAvailable(size)){
+				return true;
+			}
+		}
+		return false;
+	}
+	private void park(Vehicle v) {
+		if(isAvailable(v.size)){
+			getSlot(v);
+		}
 	}
 	
-	public static void main(String[] args) {
-		ParkingLot asu = new ParkingLot(5);
-		Car c1 = new Car(VehicleSize.Compact);
-		if(!asu.isFull()){
-			asu.park(c1);
+	
+	private void getSlot(Vehicle v) {
+		int availId;
+		Iterator<Levels> i=storage.listIterator();
+		while(i.hasNext()){
+			Levels n=i.next();
+			if(n.isAvailable(v.size)){
+				availId=n.park(v);
+				
+			}
 		}
 	}
 
-	private void park(Car c1) {
+	public static void main(String[] args) {
+		ParkingLot p = new ParkingLot(3);
 		
-		spot s = new spot(1,1,VehicleSize.Compact);
-		
+		Car c1 = new Car(111);
+		p.park(c1);
 	}
+
+	
+
+	
 
 }

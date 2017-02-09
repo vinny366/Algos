@@ -1,4 +1,4 @@
 package com.vineel;
 
-public enum VehicleSize { Motorcycle, Compact, Large}
+public enum VehicleSize { Motorcycle, Compact, Bus}
 

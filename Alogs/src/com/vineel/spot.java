@@ -1,13 +1,8 @@
 package com.vineel;
 
-public class spot {
-	int number;
-	int level;
-	VehicleSize spotsize;
+public interface spot {
+
+	public void setdetails(int id);
 	
-	spot(int number, int level, VehicleSize size){
-		this.number = number;
-		this.level = level;
-		this.spotsize = size;
-	}
+
 }
