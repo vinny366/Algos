@@ -12,6 +12,7 @@ class MyGraph {
 	public static LinkedList[] adjacencyList;
 	
 	MyGraph(int numberofvertices, boolean directed){
+//		System.out.println(numberofvertices);
 		this.isDirected = directed;
 		this.vertices =  numberofvertices ;
 		adjacencyList = new LinkedList[numberofvertices+1];
