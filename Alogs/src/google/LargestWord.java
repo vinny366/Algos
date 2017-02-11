@@ -13,6 +13,9 @@ public class LargestWord {
 		String word = "leiklrl";
 		char[] letters = word.toCharArray();
 		Map<Character,Integer> questionMap = new HashMap();
+		for(char ch : letters){
+			questionMap.put(ch, questionMap.get(ch)>0?questionMap.get(ch)+1 : 1);
+		}
 	}
 
 	public static void readFile() throws IOException {		
