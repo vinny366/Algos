@@ -10,7 +10,7 @@ public class LargestDictWord {
 	public static void main(String[] args) {
 		
 		// Defining local variables
-		String fileName = "wordList.txt";
+		String fileName = "words.txt";
 		char[] letterList = {'a','l','l','i','e','s','m'};
 		
         // Create a dictionary of the list of letters and their count
