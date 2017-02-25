@@ -3,13 +3,13 @@ package google;
 import java.util.HashMap;
 import java.util.Map;
 
+
 class TrieNode{
 	boolean endOfWord;
 	Map<Character,TrieNode> children;
-	
 	public TrieNode(){
-		endOfWord = false;
 		children = new HashMap<>();
+		endOfWord = false;
 	}
 }
 
@@ -42,7 +42,7 @@ public class TrieDS {
     		   return false;
     	   cur = cur.children.get(ch);
        }
-       return cur.endOfWord;
+       return true;
     }
    
 	public static void main(String[] args) {

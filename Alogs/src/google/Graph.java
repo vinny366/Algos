@@ -96,7 +96,7 @@ public class Graph {
 				temp.add(i);
 			}
 			allPaths.add(temp);
-			System.out.println(path.contains(so));
+			
 			path.remove((Object) so);
 		}
 
