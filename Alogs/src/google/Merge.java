@@ -7,7 +7,6 @@ public class Merge {
 		int low = 0;
 		int high = ar.length-1;
 		Merge(ar,low,high);
-//		HashMap<Integer,Integer> h = new HashMap<>();
 	
 		
 		for(int i=0;i<ar.length;i++){
