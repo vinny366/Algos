@@ -5,7 +5,13 @@ import java.util.Collections;
 import java.util.List;
 
 // ee coord class lopala pedite y error???
-class Coordinate implements Comparable<Coordinate>{
+// enduku fani cheyadu... it works
+
+public class Comparator {
+	
+	public static void main(String[] args) {
+		
+		class Coordinate implements Comparable<Coordinate>{
 	int x;
 	int y;
 	
@@ -21,11 +27,7 @@ class Coordinate implements Comparable<Coordinate>{
 
 	
 	
-}
-
-public class Comparator {
-	
-	public static void main(String[] args) {
+}	
 		Coordinate c1 = new Coordinate(1,2);
 		Coordinate c2 = new Coordinate(3,2);
 		Coordinate c3 = new Coordinate(6,6);
