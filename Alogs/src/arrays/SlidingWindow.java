@@ -16,17 +16,17 @@ public class SlidingWindow {
 	}
 
 	private static int[] calc(int[] nums, int k) {
-		 PriorityQueue<Integer> pq = new PriorityQueue<Integer>(k, Collections.reverseOrder());
+		 PriorityQueue<Integer> pQueue = new PriorityQueue<Integer>(k, Collections.reverseOrder());
 		 int[] res = new int[nums.length - k + 1];
 		 for(int i=0;i<k;i++){
-			 pq.offer(nums[i]);
+			 pQueue.offer(nums[i]);
 		 }
 		 
 		 for(int i=0;i<nums.length - k + 1; i++){
-			 res[i] = pq.peek();
-			 pq.remove(nums[i]);
+			 res[i] = pQueue.peek();
+			 pQueue.remove(nums[i]);
 			 if(i+k < nums.length){
-				 pq.offer(nums[i+k]);
+				 pQueue.offer(nums[i+k]);
 			 }
 		 }
 		 return res; 
