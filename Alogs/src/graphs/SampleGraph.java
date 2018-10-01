@@ -9,18 +9,9 @@ public class SampleGraph {
 		g.addEdge(2, 5);
 		g.addEdge(3, 4);
 		g.addEdge(4, 6);
-//		g.addEdge(5, 6);
-//		g.addEdge(6, 7);
-		
-			g.printGraph();
-//		System.out.println("Topological------------------");
+		g.printGraph();
+
 		g.topologicalSort();
-//		boolean result = g.findCycleUndirected(2);
-//		if(result){
-//			System.out.println("There is cycle");
-//		}else{
-//			System.out.println("No cyce");
-//		}
 
 	}
 
