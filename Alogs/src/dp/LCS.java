@@ -1,8 +1,5 @@
 package dp;
 
-import java.util.Collections;
-import java.util.PriorityQueue;
-
 public class LCS {
 
 	public static void main(String[] args) {
